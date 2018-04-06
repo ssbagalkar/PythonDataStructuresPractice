@@ -1,5 +1,5 @@
 def binarySearch(myArray,low,high,x):
-    if high >= high:
+    if high >= low:
         # Find the midvalue
         midValueIndex = low + (high-low)//2
         midValue = myArray[midValueIndex]
