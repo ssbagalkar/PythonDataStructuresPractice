@@ -1,29 +1,31 @@
-def partition(myArray,low,high,pivotIndex):
-    pivotValue = myArray[pivotIndex]
-    topArrayIndex = low
-    for bottomArrayIndex in range(high,pivotIndex+1,-1):
-        if (myArray[bottomArrayIndex]< pivotValue):
-            if (myArray[topArrayIndex] > pivotValue):
+def partition(myArray,low,high):
+    ii = low-1
+    pivot = myArray[high]
+    for jj in range(low,high):
 
-                myArray[topArrayIndex],myArray[bottomArrayIndex] = myArray[bottomArrayIndex],myArray[topArrayIndex]
-                topArrayIndex+= 1
-    return myArray
+        # Test condition
+        if myArray[jj] <= pivot:
+
+            #increment index of smaller element
+            ii+= 1
+
+            #swap ii with jj index
+            myArray[ii],myArray[jj] = myArray[jj],myArray[ii]
+    myArray[ii+1],myArray[high] = myArray[high],myArray[ii+1]
+    return (ii+1)
+            
+
+
 
 def quickSort(myArray,low,high):
-    if high > low:
-        pivotIndex = ((high-low)//2)+low
+    if low < high:
 
-        # partition the array
-        myArray = partition (myArray,low,high,pivotIndex)
+        # find the partition
+        pivotIndex = partition(myArray,low,high)
 
-        # recursively call quicksort
-        myArray = quickSort ( myArray,low,pivotIndex-1)
-        myArray = quickSort ( myArray,pivotIndex+1,high)
-
+        # run quick sort on top array
+        myArray = quickSort(myArray,low,pivotIndex-1)
+        myArray = quickSort(myArray,pivotIndex+1,high)
     return myArray
-
-arrayToBeSorted = [65,72,23,36,99,20,1,44]
-print("Array to be sorted:",arrayToBeSorted)
-quickSortedArray = quickSort(arrayToBeSorted,0,len(arrayToBeSorted)-1)
-print("Sorted Array:",quickSortedArray)
-
+test = [10,80,30,90,40,50,70]
+print(quickSort(test,0,len(test)-1))
