@@ -1,44 +1,28 @@
-def binarySearch(myArray,low,high,x):
-    if high >= low:
-        # Find the midvalue
-        midValueIndex = low + (high-low)//2
-        midValue = myArray[midValueIndex]
-        if midValue == x:
-            return midValueIndex
+arr  = [ 5, 6, 7, 8, 9, 10, 1, 2, 3 ]
 
-        if x > midValue:
-            return(binarySearch(myArray,midValueIndex + 1, high,x))
-        elif x < midValue:
-            return(binarySearch(myArray,low,midValueIndex-1,x))
-
-    else:
+def binarySearchWithRotation(arr,low, high,key):
+    #base case
+    if low > high:
         return -1
 
+    # find the mid index
+    midIndex = low + (high-low) // 2
+    if arr[midIndex] == key:
+        return midIndex
+
+    if arr[low] <= arr[midIndex]:
+        # Check if 1st array till mid is sorted and check if key is present in that part
+        if key >= arr[low] and key <= arr [ midIndex ] :
+            return (binarySearchWithRotation(arr,low,midIndex-1,key))
+        return(binarySearchWithRotation(arr,midIndex+1,high,key))
+
+    if key >= arr[midIndex] and key <= arr[high]:
+        return (binarySearchWithRotation(arr,midIndex+1,high,key))
+    return(binarySearchWithRotation(arr,low,midIndex-1,key))
 
 
-def findPivot(myArray):
-    ii = 0
-    while(ii <= len(myArray)-2):
-        if myArray[ii] > myArray[ii+1]:
-            return ii
-        ii += 1
-    return -1
 
 
-def binarySearchPivoted(myArray,low,high,x):
-    # search for pivotIndex
-    pivotIndex = findPivot(myArray)
-    if pivotIndex == -1:
-        return(binarySearch(myArray,low,high,x))
-    pivotValue = myArray[pivotIndex]
-    if pivotValue == x:
-        return pivotIndex
 
-    if pivotValue > x:
-        return(binarySearch(myArray,pivotIndex+1,high,x))
-    else:
-        return(binarySearch(myArray,low,pivotIndex-1,x))
 
-test = [3,4,5,1,2]
-
-print(binarySearchPivoted(test,0,len(test)-1,2))
+print(binarySearchWithRotation(arr, 0, len(arr)-1, 1))
