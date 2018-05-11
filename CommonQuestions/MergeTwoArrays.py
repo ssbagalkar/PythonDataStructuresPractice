@@ -1,4 +1,4 @@
-# Merge 2 sorted arrays of different sizes
+# Merge 2 sorted arrays of different sizes and optionally calculate its mean
 
 #Time
 #complexity is O(n)
