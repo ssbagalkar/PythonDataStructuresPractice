@@ -1,3 +1,6 @@
+
+# Find all possible permutations of given string assuming there are no duplicates
+# Complexity: O(n * n!) --> n distinct items each with n! permutations
 def convertToString(myList):
     return ''.join(myList)
 
