@@ -4,7 +4,7 @@
 #complexity is O(n)
 
 
-def mergeTwoSortedArrays(arr1, arr2):
+def mergeTwoSortedArrays(arr1, arr2, findMedian):
     sortedArray = []
 
     ii = jj = 0
@@ -23,10 +23,19 @@ def mergeTwoSortedArrays(arr1, arr2):
     if jj < len(arr2):
         sortedArray.extend(arr2[jj:])
 
+    if findMedian:
+        n = len(sortedArray)//2
+        if len(sortedArray)%2 == 0:
+            median = (sortedArray[n-1] + sortedArray[n])/2
+        else:
+            median = sortedArray[n]
+        return sortedArray,median
     return sortedArray
 
 
 arr1 = [1, 11, 15, 26, 38]
-arr2 = [1, 13, 17, 30, 45]
-
-print(mergeTwoSortedArrays(arr1,arr2))
+arr2 = [1, 13, 17, 30]
+findMedian = True
+sortedArray,median = mergeTwoSortedArrays(arr1,arr2,findMedian)
+print(sortedArray)
+print(median)
