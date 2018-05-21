@@ -17,5 +17,5 @@ def binarySearch(myArray,low,high,x):
 test = [2,3,4,10,40]
 print(binarySearch(test,0,len(test)-1,10))
 
-#Complexity ois O(logn)
+#Complexity is O(logn)
 
