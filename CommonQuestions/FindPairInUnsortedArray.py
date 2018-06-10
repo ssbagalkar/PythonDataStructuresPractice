@@ -1,7 +1,10 @@
 arr = [4, 5, 2, 1, 0, -4, -5]
 
-sumToFind = -5
+sumToFind = 0
 
+
+'''
+###This solution will not work as we need orderedDict
 
 def findPairInUnsortedArray(arr, sumToFind):
     complementDict = {}
@@ -23,5 +26,31 @@ def findPairInUnsortedArray(arr, sumToFind):
 
     if not found:
         print(-1)
-findPairInUnsortedArray(arr, sumToFind)
+		'''
+# arr = [2,4,1,6,5,40,-1]
+#
+# sumToFind = 40
+from collections import OrderedDict
+
+
+
+def FindSumInUnSortedArray(arr,sumToFind):
+    myDict = OrderedDict()
+    found = False
+    for ii in range(len(arr)):
+        myDict[arr[ii]] = sumToFind - arr[ii]
+        if arr[ii] in list(myDict.values())[:-1]:
+            found = True
+            print(sumToFind - arr[ii],end=" ")
+            print(arr[ii])
+            break
+    if not found:
+        print(-1)
+
+
+
+
+FindSumInUnSortedArray(arr,sumToFind)
+
+
 
