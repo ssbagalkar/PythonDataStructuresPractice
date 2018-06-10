@@ -1,5 +1,5 @@
 # A simple Python program for traversal of a linked list
-
+# https://www.geeksforgeeks.org/linked-list-set-1-introduction/
 # Node class
 class Node:
     # Function to initialise the node object
