@@ -6,6 +6,7 @@ def common_elements(arr_1, arr_2):
         if arr_1[ii] == arr_2[jj]:
             common_element_list.append(arr_1[ii])
             ii+=1
+			jj+=1
         else:
             if arr_1[ii] < arr_2[jj]:
                 ii+=1
