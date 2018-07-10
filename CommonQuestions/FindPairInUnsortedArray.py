@@ -46,6 +46,24 @@ def FindSumInUnSortedArray(arr,sumToFind):
             break
     if not found:
         print(-1)
+		
+## probably another better way 
+def findPairInUnsortedArray(arr,sumToFind):
+    d = OrderedDict()
+    found = False
+    d[arr[0]] = sumToFind - arr[0]
+
+    for el in arr:
+        if el in d.values():
+            print(sumToFind - el,end=' ')
+            print(el)
+            found = True
+            break
+        else:
+            d[el] = sumToFind -el
+    if not found:
+        print(-1)
+
 
 
 
