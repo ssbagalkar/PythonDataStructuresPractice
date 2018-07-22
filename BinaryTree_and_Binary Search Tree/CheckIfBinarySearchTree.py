@@ -1,4 +1,7 @@
-# Use this class to create binary trees.
+# This algorithm tests if the binary tree is a bst
+# Time complexity is 0(n)
+# Space complexity is 0(h)--> height of tree
+
 class Node:
     def __init__(self, value, left=None, right=None):
         self.value = value
