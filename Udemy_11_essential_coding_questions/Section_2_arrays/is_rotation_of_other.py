@@ -46,6 +46,14 @@ def is_rotation(list1, list2):
 		# ii += 1
 	# return True
 
+## another one liner from w3resource
+# If lists have duplicates
+list1 = [10, 10, 0, 0, 10]
+list2 = [10, 10, 10, 0, 0]
+list3 = [1, 10, 10, 0, 0]
+
+print(''.join(map(str,list2)) in ''.join(map(str,list1*2)))
+
 # NOTE: The following input values will be used for testing your solution.
 list1 = [1, 2, 3, 4, 5, 6, 7]
 list2a = [4, 5, 6, 7, 8, 1, 2, 3]
