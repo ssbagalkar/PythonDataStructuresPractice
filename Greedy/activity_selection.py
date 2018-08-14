@@ -8,7 +8,7 @@ single person, one at a time"""
 # f[] --> An array that contains finish time of all activities
 
 ## https://www.geeksforgeeks.org/greedy-algorithms-set-1-activity-selection-problem/
- 
+ ## complexity: O(n) if activities are not sorted. It takes O(log n) time if activities are sorted
 def printMaxActivities(s , f ):
     n = len(f)
     print ("The following activities are selected")
