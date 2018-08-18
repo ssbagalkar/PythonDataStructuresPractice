@@ -11,6 +11,6 @@ string = "{[()]}"
 print(isBalanced(list(string)))
 
 print(isBalanced('(())'))
-print(isBalanced('(()())'))
-print(isBalanced('((('))
+print(isBalanced('[()]]'))
+print(isBalanced('{{[[}}['))
 print(isBalanced(' '))
