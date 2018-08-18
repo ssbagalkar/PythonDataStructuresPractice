@@ -1,26 +1,16 @@
-# Implement parentheses balance
-def balanceParentheses(parenString):
-    if not parenString.isspace():
-        chars = [x for x in parenString]
-        isBalanced = True
-        stack = []
-        index = 0
-        while index < len(chars) and isBalanced:
-            symbol = chars[index]
-            if symbol == "(":
-                stack.append(symbol)
-            else:
-                stack.pop()
+def isBalanced(s):
+	left_chars, LOOKUP = [], {"{":"}", "(":")", "[":"]"}
+	for c in s:
+		if c in LOOKUP:
+			left_chars.append(c)
+		elif not left_chars or LOOKUP[left_chars.pop()] != c:
+			return False
+	return not left_chars
 
-            index+=1
+string = "{[()]}"
+print(isBalanced(list(string)))
 
-        if isBalanced and len(stack) == 0:
-            return isBalanced
-        else:
-            return False
-    return False
-
-print(balanceParentheses('(())'))
-print(balanceParentheses('(()())'))
-print(balanceParentheses('((('))
-print(balanceParentheses(' '))
+print(isBalanced('(())'))
+print(isBalanced('(()())'))
+print(isBalanced('((('))
+print(isBalanced(' '))
