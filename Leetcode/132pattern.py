@@ -1,3 +1,4 @@
+# Following is brute force 0(n^3) complexity
 def find132pattern(nums):
 	if sorted(nums) == nums:
 		return False
