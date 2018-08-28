@@ -1,3 +1,5 @@
+#https://www.hackerrank.com/challenges/ctci-making-anagrams/problem
+# Find minimum # of deletions to make 2 strings anagram
 def makeAnagram(a, b):
   if len(b) > len(a):
     return makeAnagram(b,a)
