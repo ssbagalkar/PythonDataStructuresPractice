@@ -1,5 +1,7 @@
 from collections import defaultdict,deque
-
+""" source : https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
+This is BFDS for graph which is slightly different than for a tree.
+"""
 
 class Graph:
 	def __init__(self):
@@ -52,6 +54,41 @@ g.addEdge(5, 6)
 g.addEdge(6, 4)
 g.addEdge(6, 5)
 
+
 print("Following is Breadth First Traversal"
 			" (starting from vertex 0)")
 g.BFS(1)
+
+
+
+"""
+Simpler implementation from https://www.educative.io/edpresso/how-to-implement-a-breadth-first-search-in-python
+"""
+
+# graph = {
+#   'A' : ['B','C'],
+#   'B' : ['D', 'E'],
+#   'C' : ['F'],
+#   'D' : [],
+#   'E' : ['F'],
+#   'F' : []
+# }
+#
+# visited = [] # List to keep track of visited nodes.
+# queue = []     #Initialize a queue
+#
+# def bfs(visited, graph, node):
+#   visited.append(node)
+#   queue.append(node)
+#
+#   while queue:
+#     s = queue.pop(0)
+#     print (s, end = " ")
+#
+#     for neighbour in graph[s]:
+#       if neighbour not in visited:
+#         visited.append(neighbour)
+#         queue.append(neighbour)
+#
+# # Driver Code
+# bfs(visited, graph, 'A')
