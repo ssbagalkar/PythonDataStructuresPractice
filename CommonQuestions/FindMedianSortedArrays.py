@@ -59,7 +59,7 @@ def findMedianSortedArray(arr1, arr2):
             or get max of left for odd length combined array size'''
 
             if (x + y) % 2 == 0:
-				return ( (max(maxLeftX, maxLeftY) + min(minRightX, minRightY)) / 2)
+                return ((max(maxLeftX, maxLeftY) + min(minRightX, minRightY)) / 2)
             else:
                 return (max(maxLeftX, maxLeftY))
 
@@ -68,6 +68,7 @@ def findMedianSortedArray(arr1, arr2):
 
         else:
             low = partitionX + 1
+
 
 arr1 = [1, 3, 8, 9, 15]
 arr2 = [7, 11, 18, 19, 21, 25]
