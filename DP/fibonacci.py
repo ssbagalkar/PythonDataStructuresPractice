@@ -9,30 +9,39 @@ def fib(n):
         result = fib(n-1) + fib(n-2)
     return result
 
+# optimized memoized solution
 
-# A memoized solution
-def fib_2(n, memo):
-    if memo[n] is not None:
-        return memo[n]
-    if n == 1 or n == 2:
-        result = 1
-    else:
-        result = fib_2(n-1, memo) + fib_2(n-2, memo)
-    memo[n] = result
-    return result
+# https://www.youtube.com/watch?v=Qk0zUZW-U_M
 
-def fib_memo(n):
-    memo = [None] * (n + 1)
-    return fib_2(n, memo)
+fib_cache={}
+def fib_memoized(n):
+    # if we have already cached the value, then return it
+    if n in fib_cache:
+        return fib_cache[n]
 
-
-# A bottom-up solution
-def fib_bottom_up(n):
-    if n == 1 or n == 2:
+    # Compute N-th term
+    if n == 1:
         return 1
-    bottom_up = [None] * (n+1)
-    bottom_up[1] = 1
-    bottom_up[2] = 1
-    for i in range(3, n+1):
-        bottom_up[i] = bottom_up[i-1] + bottom_up[i-2]
-    return bottom_up[n]
+    elif n == 2:
+        return 1
+    elif n > 2:
+        value = fib_memoized(n-2)+ fib_memoized(n-1)
+
+        # Cache the value and return
+        fib_cache[n] = value
+        return value
+
+# https://avikdas.com/2019/04/15/a-graphical-introduction-to-dynamic-programming.html
+# https://www.youtube.com/watch?v=5dRGRueKU3M
+def fib_bottom_up(n):
+    if n <=1:
+        return n
+    dp_array = [-1  for ii in range(n+1)]
+    dp_array[0]=0
+    dp_array[1]=1
+    for ii in range(2, n + 1):  # end of range is exclusive
+        dp_array[ii] = dp_array[ii-2] + dp_array[ii-1]
+    return dp_array[n]
+
+for n in range(1, 11):
+    print(n, ":", fib_bottom_up(n))
