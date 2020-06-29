@@ -27,7 +27,8 @@ def subset_sum_recursion(arr, s, n):
 Let's memoize the above solution
 """
 
-def subset_sum_memoization(arr, s, n):
+
+def subset_sum_memoization(arr, s, n, memo):
 
     if memo[n][s] != 0:
         return memo[n][s]
@@ -38,14 +39,14 @@ def subset_sum_memoization(arr, s, n):
         return True
 
     if arr[n-1] <= s:
-        memo[n][s] = subset_sum_recursion(arr, s-arr[n-1], n-1) or subset_sum_recursion(arr, s, n-1)
+        memo[n][s] = subset_sum_memoization(arr, s-arr[n-1], n-1, memo) or subset_sum_memoization(arr, s, n-1, memo)
 
     elif arr[n-1] > s:
-        memo[n][s] = subset_sum_recursion(arr, s, n-1)
+        memo[n][s] = subset_sum_memoization(arr, s, n-1, memo)
 
     return memo[n][s]
 
-
+"Let's make this DP table"
 def subset_sum_tabular(arr, s, n):
     dp = [[False for _ in range(s + 1)] for _ in range(n + 1)]
 
@@ -69,6 +70,7 @@ n = len(arr)
 memo = [[0 for _ in range(s+1)] for _ in range(n+1)]
 expected = True
 assert subset_sum_recursion(arr, s, n) == expected
-assert subset_sum_memoization(arr, s, n) == expected
+assert subset_sum_memoization(arr, s, n, memo) == expected
 assert subset_sum_tabular(arr, s, n)
+assert subset_sum_recursion(arr, s, n) == subset_sum_memoization(arr, s, n, memo)
 
