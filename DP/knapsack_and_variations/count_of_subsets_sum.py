@@ -2,6 +2,7 @@
 Video -->https://www.youtube.com/watch?v=F7wqWbqYn9g&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=9
 """
 
+
 def count_of_subset_sum_recursive(arr, n, s):
     # Base Condition
     if n == 0 and s != 0:
@@ -18,6 +19,7 @@ def count_of_subset_sum_recursive(arr, n, s):
 def count_of_subset_memoized(arr, n, s):
     memo = [[0 for _ in range(s+1)] for _ in range(n+1)]
     return count_of_subset_memoized_util(arr, n, s, memo)
+
 
 def count_of_subset_memoized_util(arr, n, s, memo):
 

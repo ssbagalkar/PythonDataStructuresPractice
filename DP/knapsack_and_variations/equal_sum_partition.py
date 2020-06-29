@@ -17,6 +17,7 @@ def is_equal_recursive_sub(arr, n, s):
     elif arr[n - 1] > s:
         return is_equal_recursive_sub(arr, n - 1, s)
 
+
 def is_equal_memoized_sub(arr, n, s, memo):
 
     if memo[n][s] != 0:
