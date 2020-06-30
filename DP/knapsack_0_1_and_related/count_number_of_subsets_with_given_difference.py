@@ -11,6 +11,8 @@ so from 1 and 2
 sum(s1) = (sum(given_array) + given_difference)/2
 
 Now the problem is reduced to count the number of subsets sum where the sum is sum(s1)
+
+Note: same problem as Target sum
 """
 
 def count_number_of_subsets_with_given_difference(arr, diff):
