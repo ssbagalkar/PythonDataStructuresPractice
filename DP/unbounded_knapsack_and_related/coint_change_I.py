@@ -13,7 +13,7 @@ def coin_change_max_ways_recursion(coin_arr, s, n):
         return 1
 
     if coin_arr[n-1] <= s:
-        return coin_change_max_ways_recursion(coin_arr, s-coin_arr[n-1], n)+ coin_change_max_ways_recursion(coin_arr, s, n-1)
+        return coin_change_max_ways_recursion(coin_arr, s-coin_arr[n-1], n) + coin_change_max_ways_recursion(coin_arr, s, n-1)
 
     elif coin_arr[n-1] > s:
         return coin_change_max_ways_recursion(coin_arr, s, n-1)
@@ -43,11 +43,11 @@ def coin_change_max_ways_memoization(arr, s, n, memo):
 
 "Let's make this DP table"
 def coin_change_max_ways_tabular(arr, s, n):
-    dp = [[False for _ in range(s + 1)] for _ in range(n + 1)]
+    dp = [[0 for _ in range(s + 1)] for _ in range(n + 1)]
 
-    # If sum is 0, then answer is true
+    # If sum is 0, then answer is 1
     for ii in range(n + 1):
-        dp[ii][0] = True
+        dp[ii][0] = 1
 
     for ii in range(1, n+1):
         for jj in range(1, s+1):
@@ -59,8 +59,8 @@ def coin_change_max_ways_tabular(arr, s, n):
 
 
 coin_arr = [1, 2, 3]
-s = 5
-expected = 5
+s = 4
+expected = 4
 memo = [[0 for _ in range(s+1)] for _ in range(len(coin_arr)+1)]
 print(f"Answer using Recursion --> {coin_change_max_ways_recursion(coin_arr, s, len(coin_arr))}")
 print(f"Answer using Memoization --> {coin_change_max_ways_memoization(coin_arr, s, len(coin_arr), memo)}")
