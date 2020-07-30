@@ -23,6 +23,8 @@ Tabular         O(n^2)              O(n^2 ) ?
 
 
 Verified in Leetcode - ?
+
+Note: The solution is exactly the same if they ask for min number of insertions as well
 """
 
 def min_del_palindrome_recursion(str_one, str_two, n, m):
