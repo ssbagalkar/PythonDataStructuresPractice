@@ -9,7 +9,7 @@ Youtube Video (Aditya Verma)-->https://www.youtube.com/watch?v=4Urd0a0BNng&list=
 Complexity Analysis:
 n is length of longest string
                 Time                Space
-Recursion       O(2^n)              O(1)
+Recursion       O(2^(m+n))              O(1)
 
 Memoization     O(m*n)              O(n * m)
 
@@ -52,14 +52,14 @@ def lcs_tabular(str_one, str_two, n, m):
     for ii in range(1, n+1):
         for jj in range(1, m+1):
             if str_one[ii-1] == str_two[jj-1]:
-                dp[ii][jj] = 1+ dp[ii-1][jj-1]
+                dp[ii][jj] = 1 + dp[ii-1][jj-1]
             else:
                 dp[ii][jj] = max(dp[ii-1][jj], dp[ii][jj-1])
     return dp[n][m]
 
 
-str_one = "abcde"
-str_two = "ace"
+str_one = "abcd"
+str_two = "acfd"
 n = len(str_one)
 m = len(str_two)
 print(lcs_recursion(str_one, str_two, n, m))

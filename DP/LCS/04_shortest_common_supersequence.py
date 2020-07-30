@@ -3,7 +3,7 @@ EXACTLY similar to LCS--> just add lengths of both strings and then subtract LCS
 Problem statement:Given two strings str1 and str2, find the shortest string that has both str1 and str2 as subsequences.
 
 Input:   str1 = "geek",  str2 = "eke"
-Output: "geeke"
+Output: 4 --> "geeke"
 PROBLEM STATEMENT LINK:https://www.geeksforgeeks.org/shortest-common-supersequence/
 Youtube Video for LCS (Aditya Verma)-->https://www.youtube.com/watch?v=823Grn4_dCQ&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=24
 
@@ -16,7 +16,7 @@ Memoization     O(m*n)              O(n * m)
 
 Tabular         O(m*n)              O(n * m ) ?
 
-Answers verified in Leetcode/HackerRank? : Yes
+Answers verified in Leetcode/HackerRank? : No
 """
 
 
@@ -67,7 +67,7 @@ print(f"Recursion Result --> {len(str_one) + len(str_two) - scs_recursion(str_on
 memo = [[0 for _ in range(m+1)] for _ in range(n+1)]
 print(f"Memoization Result --> {len(str_one) + len(str_two) - scs_memoization(str_one, str_two, n, m, memo)}")
 assert len(str_one) + len(str_two) - scs_recursion(str_one, str_two, n, m) == len(str_one) + len(str_two) -scs_memoization(str_one, str_two, n, m, memo)
-print("LCS recursion and LCS memoization matches")
+print("SCS recursion and SCS memoization matches")
 print(f"Tabular Result --> {len(str_one) + len(str_two) - print_lcs_tabular(str_one, str_two, n, m)}")
 assert len(str_one) + len(str_two) - scs_memoization(str_one, str_two, n, m, memo) == len(str_one) + len(str_two) -scs_recursion(str_one, str_two, n, m)
-print("LCS memoization and LCS tabular  matches")
+print("SCS memoization and SCS tabular  matches")
