@@ -18,13 +18,21 @@ Time Complexity of Memoization:  0(n^3) cubed
 
 Verified in Leetcode: Nope
 
+Important:
+Follow the 4 steps mentioned by Aditya for any MCM problem to generate the flow
+1. Find the extent of i and j
+2. Define base condition
+3. define the k loop
+4. store tmp val and conditions around it
+
+
 """
 
 
 import math
 def matrix_chain_multiplication_recursion(arr, i, j):
     # Base condition
-    if i == j:
+    if i >= j:
         return 0
 
     cost = math.inf
@@ -50,8 +58,8 @@ def matrix_chain_multiplication_memoized(arr, i, j, memo):
     cost = math.inf
 
     for k in range(i, j):
-        temp_val = matrix_chain_multiplication_recursion(arr, i, k) + \
-                    matrix_chain_multiplication_recursion(arr, k+1, j) + \
+        temp_val = matrix_chain_multiplication_memoized(arr, i, k, memo) + \
+                    matrix_chain_multiplication_memoized(arr, k+1, j, memo) + \
                     arr[i-1] * arr[k] * arr[j]
 
         if temp_val < cost:
