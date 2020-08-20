@@ -1,14 +1,28 @@
-def BubbleSort(myArray):
-    for ii in range(len(myArray)):
+def bubble_sort_optimized(arr):
+    n = len(arr)
+    while n >= 1:
         swapped = False
-        for jj in range(len(myArray)-ii-1):
-            if myArray[jj] > myArray[jj+1]:
-                myArray[jj],myArray[jj+1] = myArray[jj+1],myArray[jj]
+        for ii in range(n-1):
+            if arr[ii]>arr[ii+1]:
+                arr[ii], arr[ii+1] = arr[ii+1], arr[ii]
                 swapped = True
-       
-        if swapped == False:
-           break
-    return myArray
-    
-arrayToBeSorted = [2,7,4,1,5,3]
-print(BubbleSort(arrayToBeSorted))
+        if not swapped:
+            return arr
+        n-=1
+    return arr
+
+
+def bubble_sort_not_optimized(arr):
+    n = len(arr)
+    while n > 0:
+        for ii in range(n-1):
+            if arr[ii]>arr[ii+1]:
+                arr[ii], arr[ii+1] = arr[ii+1], arr[ii]
+        n -= 1
+    return arr
+
+
+array_to_be_sorted = [2, 7, 4, 1, 5, 3]
+print(bubble_sort_not_optimized(array_to_be_sorted))
+print(bubble_sort_optimized(array_to_be_sorted))
+assert bubble_sort_not_optimized(array_to_be_sorted) == bubble_sort_optimized(array_to_be_sorted)
