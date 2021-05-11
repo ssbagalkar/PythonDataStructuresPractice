@@ -17,18 +17,10 @@ def conv2d(image, kernel, mode):
 	else:
 		output = np.zeros(((image.shape[0]-kernel.shape[0])+1, (image.shape[1]-kernel.shape[1])+1))
 		image_padded = image
-	
-	#traverse
-	if mode == 'same':
-		for x in range(image.shape[0]):
-			for y in range(image.shape[1]):
-				output[y, x] = (kernel * image_padded[y:y+kernel.shape[0], x:x+kernel.shape[0]]).sum()
 
-	else:
-		# traverse
-		for x in range(output.shape[0]):
-			for y in range(output.shape[1]):
-				output[y, x] = (kernel * image_padded[y:y + kernel.shape[0], x:x + kernel.shape[0]]).sum()
+	for x in range(output.shape[0]):
+		for y in range(output.shape[1]):
+			output[y, x] = (kernel * image_padded[y:y+kernel.shape[0], x:x+kernel.shape[0]]).sum()
 
 	return output
 	
