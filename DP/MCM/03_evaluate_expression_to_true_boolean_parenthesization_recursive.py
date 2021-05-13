@@ -35,9 +35,9 @@ def solve(s: str, i: int, j: int, is_true: bool):
         return False
     if i == j:
         if is_true:
-            return s[i] == 'T'
+            return 1 if s[i] == 'T' else 0
         else:
-            return s[i] == 'F'
+            return 1 if s[i] == 'F' else 0
 
     num_ways = 0
 
