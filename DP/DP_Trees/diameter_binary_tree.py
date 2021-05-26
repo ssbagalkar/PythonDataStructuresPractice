@@ -6,13 +6,13 @@ How to approach this problem?
 
 Simple steps to follow and think:
 1. Either we will find the diameter passing through the root OR Not passing through the root
-2. if passing through the root, the cost function recursilvely is
+2. if passing through the root, the cost function recursively is
 	left_height + right_height + 1
 3. If not passing through the root, cost function is recursively calling on left tree and then right tree and take max
 
 4. So return MAX( 2, 3 ) i.e max(1+left_height+right_height, max(recursive_fn_call(left), recursive_fn_call(right))
 
-Time Complexity of above approach: O(n^4)
+Time Complexity of above approach: O(n^2)
 
 https://www.geeksforgeeks.org/diameter-of-a-binary-tree/
 
