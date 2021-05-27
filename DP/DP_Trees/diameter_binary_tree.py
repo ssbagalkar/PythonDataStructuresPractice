@@ -23,6 +23,8 @@ https://www.geeksforgeeks.org/diameter-of-a-binary-tree-in-on-a-new-method/
 Verified In LeetCode/HackerRank ? No
 """
 
+
+# Not optimized code, running in quadratic time
 class Node:
 	def __init__(self, data):
 		self.data = data
@@ -35,12 +37,12 @@ def height(current_node, current_height):
 		return current_height
 
 	if current_node.left is not None:
-		left_height = height(current_node.left, current_height+1)
+		left_height = height(current_node.left, current_height + 1)
 	else:
 		left_height = current_height
 
 	if current_node.right is not None:
-		right_height = height(current_node.right, current_height+1)
+		right_height = height(current_node.right, current_height + 1)
 	else:
 		right_height = current_height
 
@@ -60,7 +62,24 @@ def diameter(root):
 	return max(left_height + right_height + 1, max(left_diameter, right_diameter))
 
 
-# Driver code
+# Optimized code, running in linear time
+
+def diameter_optimized(node, ans):
+	# Following Aditya's pattern here
+	# 1. First is base condition
+	if node is None:
+		return 0
+
+	# 2. Hypothesis--> This will always recursive the left tree and right tree
+	left_height = diameter_optimized(node.left, ans)
+	right_height = diameter_optimized(node.right, ans)
+
+	# Induction-->
+	temp = 1 + max(left_height, right_height)
+	ans[0] = max(ans[0], 1 + left_height + right_height)
+	return temp
+
+
 if __name__ == '__main__':
 	root = Node(1)
 	root.left = Node(2)
@@ -68,5 +87,8 @@ if __name__ == '__main__':
 	root.left.left = Node(4)
 	root.left.right = Node(5)
 
-	print("Diameter is", diameter(root))
-
+	print(f"Diameter is {diameter(root)}")
+	ans = [-99999999]
+	diameter_optimized(root, ans)
+	answer = ans[0]
+	print(f"Diameter is {answer} ")
