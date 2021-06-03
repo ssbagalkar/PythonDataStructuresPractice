@@ -12,7 +12,7 @@
 #
 # Video
 #
-# Refer this series for DP --> https://www.youtube.com/watch?v=aycn9KO8_Ls&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=13&frags=pl%2Cwn
+# Refer this series for DP-adity-verma-playlist --> https://www.youtube.com/watch?v=aycn9KO8_Ls&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=13&frags=pl%2Cwn
 
 THIS IS EXACTLY SIMILAR TO 0/1 KNAPSACK EXCEPT ONE MINUTE CHANGE. Just change i-1 to i and you are done
 Also this is same as rod cutting problem!

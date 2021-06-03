@@ -1,4 +1,9 @@
+"""
 # https://www.youtube.com/watch?v=f5dU3xoE6ms&t=1s&ab_channel=BrianFaure
+Understand difference between height an depth:
+https://www.youtube.com/watch?v=_pnqMz5nrRs&ab_channel=mycodeschool
+
+"""
 
 class Node:
 	def __init__(self, data=None):
@@ -50,11 +55,17 @@ class BinarySearchTree:
 		else:
 			return 0
 
+	# this is different from video implementation as I feel in video height
+	# is incorrectly calculated
 	def _height(self, current_node, current_height):
-		if current_node is None:
-			return current_height
-		left_height = self._height(current_node.left_child, current_height + 1)
-		right_height = self._height(current_node.right_child, current_height + 1)
+		if current_node.left_child is not None:
+			left_height = self._height(current_node.left_child, current_height + 1)
+		else:
+			left_height = current_height
+		if current_node.right_child is not None:
+			right_height = self._height(current_node.right_child, current_height + 1)
+		else:
+			right_height = current_height
 		return max(left_height, right_height)
 
 	def search(self, value):
@@ -139,15 +150,17 @@ class BinarySearchTree:
 		# Case 3
 		if node_children == 2:
 			# get the inorder successor of the deleted node
-			successor = min_value_node(node.right_child) ## can't understand why?
+			successor = min_value_node(node.right_child)
 
 			node.data = successor.data
 
 			self.delete_node(successor)
 
 
+
 def fill_tree(tree):
 	elements = [10, 5, 3, 7, 15, 20]
+	# elements = [20, 10, 6, 8, 2, 4]
 	for el in elements:
 		tree.insert(el)
 	return tree
@@ -157,7 +170,7 @@ tree = BinarySearchTree()
 tree = fill_tree(tree)
 tree.print_tree()
 
-# print(f"Tree height --> {tree.height()}")
+print(f"Tree height --> {tree.height()}")
 
 # print(tree.search(7))
 

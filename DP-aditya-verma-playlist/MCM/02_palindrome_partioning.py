@@ -95,7 +95,8 @@ def palindrome_partioning_memoized_optimized(arr, i , j, memo):
 
 
 # Driver program to test above function
-string = 'ababbbabbababa'
+# string = 'ababbbabbababa'
+string = "nitin"
 n = len(string)
 memo = [[0 for _ in range(n+1)] for _ in range(n+1)]
 assert palindrome_partioning_recursion(string, 0, n-1) == \

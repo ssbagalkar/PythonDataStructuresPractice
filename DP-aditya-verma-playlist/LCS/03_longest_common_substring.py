@@ -30,7 +30,7 @@ Answers verified in Leetcode/HackerRank? : Yes
 """
 import numpy as np
 
-# This recursive approach uis take from geeks for geeks. The DP approach is very similar to 01_lcs problem
+# This recursive approach is take from geeks for geeks. The approach is very similar to 01_lcs problem
 def lcss_recursion(str_one, str_two, n , m, count):
     # Base Condition
     if n == 0 or m == 0:

@@ -12,7 +12,7 @@
 #
 # Video
 #
-# Refer this series for DP --> https://www.youtube.com/watch?v=kvyShbFVaY8&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=3
+# Refer this series for DP-aditya-verma-playlist --> https://www.youtube.com/watch?v=kvyShbFVaY8&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=3
 
 # References
 # ----------

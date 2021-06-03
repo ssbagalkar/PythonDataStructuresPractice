@@ -1,4 +1,3 @@
-
 # https://www.youtube.com/watch?v=SqA0o-DGmEw&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=41&ab_channel=AdityaVermaAdityaVerma
 # https://www.geeksforgeeks.org/check-if-a-string-is-a-scrambled-form-of-another-string/
 
@@ -6,9 +5,14 @@
 Note: All scrambled versions of each other are anagrams but not all anagrams are scrambled versions of each other
 e.g : coder and ocder are scrambled
 but abcde and caebd are NOT
-"""
-def is_scrambled_string(s1, s2):
 
+
+Note: This Recursive Solution passes all test cases in InterViewBit!!
+I need to figure out a better, more optimized solution i.e memoized either with a dictionary approach or matrix
+"""
+
+
+def is_scrambled_string(s1, s2):
 	# differing lengths dont make scrambled string
 	if len(s1) != len(s2):
 		return False
@@ -44,19 +48,12 @@ def is_scrambled_string(s1, s2):
 	return False
 
 
-#Test cases
+# Test cases
 s1 = "great"
 s2 = "eatgr"
-
-print(is_scrambled_string(s1, s2)) # expected True
+memo = [[False for _ in range(len(s1))] for _ in range(len(s2))]
+print(is_scrambled_string(s1, s2))  # expected True
 
 s1 = "abcde"
 s2 = "caebd"
-print(is_scrambled_string(s1, s2)) # expected False
-
-
-
-
-
-
-
+print(is_scrambled_string(s1, s2))  # expected False

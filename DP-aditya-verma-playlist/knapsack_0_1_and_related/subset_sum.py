@@ -46,7 +46,7 @@ def subset_sum_memoization(arr, s, n, memo):
 
     return memo[n][s]
 
-"Let's make this DP table"
+"Let's make DP table"
 def subset_sum_tabular(arr, s, n):
     dp = [[False for _ in range(s + 1)] for _ in range(n + 1)]
 

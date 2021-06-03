@@ -41,7 +41,7 @@ def coin_change_max_ways_memoization(arr, s, n, memo):
 
     return memo[n][s]
 
-"Let's make this DP table"
+"Let's make this DP-adity-verma-playlist table"
 def coin_change_max_ways_tabular(arr, s, n):
     dp = [[0 for _ in range(s + 1)] for _ in range(n + 1)]
 
@@ -64,7 +64,7 @@ expected = 4
 memo = [[0 for _ in range(s+1)] for _ in range(len(coin_arr)+1)]
 print(f"Answer using Recursion --> {coin_change_max_ways_recursion(coin_arr, s, len(coin_arr))}")
 print(f"Answer using Memoization --> {coin_change_max_ways_memoization(coin_arr, s, len(coin_arr), memo)}")
-print(f"Answer using DP --> {coin_change_max_ways_tabular(coin_arr, s, len(coin_arr))}")
+print(f"Answer using DP-adity-verma-playlist --> {coin_change_max_ways_tabular(coin_arr, s, len(coin_arr))}")
 assert coin_change_max_ways_recursion(coin_arr, s, len(coin_arr)) == \
        coin_change_max_ways_memoization(coin_arr, s, len(coin_arr), memo)
 assert coin_change_max_ways_recursion(coin_arr, s, len(coin_arr)) == \
