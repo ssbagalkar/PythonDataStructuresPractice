@@ -6,17 +6,17 @@ Space Complexity --> ?
 """
 
 
-def generate_power_set(input, output):
+def generate_power_set(input_str, output):
 	# base condition
-	if input == "":
+	if input_str == "":
 		print(output)
 		return
 
 	output_one = output
-	output_two = output+input[0]
-	generate_power_set(input[1:], output_one)
-	generate_power_set(input[1:], output_two)
+	output_two = output + input_str[0]
+	generate_power_set(input_str[1:], output_one)
+	generate_power_set(input_str[1:], output_two)
 
 
-#driver code
+# driver code
 generate_power_set("abc", "")
