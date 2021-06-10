@@ -8,10 +8,8 @@ def permutation_with_case_change(input_str, output_str):
 		print(output_str)
 		return
 
-	# logic
 	permutation_with_case_change(input_str[1:], output_str + input_str[0].lower())
 	permutation_with_case_change(input_str[1:], output_str + input_str[0].upper())
-
 
 #driver
 input_str = "abc"
