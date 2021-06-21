@@ -4,7 +4,7 @@ Link --> https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-sub
 Optimized solution from Leetcode --> https://leetcode.com/problems/sliding-window-maximum/solution/
 Method                     Time          Space
 find_sliding_max_naive     O(n*k)          O(1)-> if just printing or O(N-k+1) -> if returning
-find_sliding_max_optimized O(n)            O(n)
+find_sliding_max_optimized/geeks O(n)            O(n)
 """
 from collections import deque
 
