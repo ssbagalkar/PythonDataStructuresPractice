@@ -8,29 +8,21 @@ first_neg_number_not_optimized        O(n*k)           O(k)                     
 """
 
 from collections import deque
-def first_neg_number_not_optimized(arr, n, k):
-	"""
-	Let's use a deque instead of list for indexes. this reduces pop complexity from O(n) to O(1)
-	"""
-	result = []
-	indexes_of_first_negative_array_in_each_window = deque()
-	for ii in range(n - k + 1):
-		if len(indexes_of_first_negative_array_in_each_window) > 0:
-			if indexes_of_first_negative_array_in_each_window[0] == ii:
-				indexes_of_first_negative_array_in_each_window.popleft()
-				result.append(arr[ii])
-				continue
-		window = arr[ii:ii + k]
-		found = False
-		for jj, num in enumerate(window):
-			if num < 0:
-				indexes_of_first_negative_array_in_each_window.append(ii + jj)
-				if not found:
-					result.append(num)
-					found = True
-		if not found:
-			result.append(0)
-	return result
+def first_negative_number_sliding(arr, k):
+    n = len(arr)
+    neg_values=[]
+    for ii in range(n-k+1):
+        jj = ii
+        while jj < (ii + k) :
+            if arr[jj] >= 0:
+                if jj == ii + k - 1:
+                    neg_values.append(0)
+                jj+=1
+            else:
+                neg_values.append(arr[jj])
+                break
+
+    return neg_values
 
 
 def first_negative_number_optimized(nums, n, k):
