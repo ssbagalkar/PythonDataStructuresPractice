@@ -4,7 +4,7 @@ https://www.geeksforgeeks.org/count-occurrences-of-anagrams/
 Complexity:
 Method                            Time (worst)     Auxiliary Space(worst)   Passing tests?
 Not optimized                       O(n*k)           O(k)                     Yes, with TLE
-Optimized                           O(n)             O(k)                     No, failing for few
+Optimized                           O(n)             O(k)                     Yess!!
 """
 
 
@@ -39,61 +39,52 @@ def count_number_of_anagrams_brute(my_string, my_pattern):
 	return count
 
 
-def count_number_of_anagrams_optimized(my_string, my_pattern):
-	if len(my_string) == 0 or len(my_pattern) == 0:
+def count_number_of_anagrams_optimized(str1, str2):
+	n = len(str1)
+	m = len(str2)
+	result = 0
+	if m > n or n == 0 or m == 0:
 		return 0
-	n = len(my_string)
-	k = len(my_pattern)
+	anagram_dict = dict()
 
-	if len(my_pattern) > len(my_string):
-		return 0
-
-	count = 0
-	if len(my_pattern) == 1:
-		for char in my_string:
-			if char == my_pattern:
-				count+=1
-		return count
-
-
-	deq = deque()
-	count_dict = dict()
-	for letter in my_pattern:
-		if letter in count_dict:
-			count_dict[letter] += 1
+	for letter in str2:
+		if letter not in anagram_dict:
+			anagram_dict[letter] = 1
 		else:
-			count_dict[letter] = 1
+			anagram_dict[letter] += 1
 
-	for ii in range(k):
-		letter = my_string[ii]
-		if letter in count_dict:
-			count_dict[letter] -= 1
-	values = [value for key, value in count_dict.items()]
-	if any(values) is False:
-		count += 1
-	deq.append(my_string[0])
-	for ii in range(1, n-k+1):
-		to_remove = deq[0]
-		if to_remove in count_dict:
-			count_dict[to_remove] -= 1
-		deq.popleft()
-		to_include = my_string[ii]
-		deq.append(to_include)
+	my_dict = dict()
+	for letter in str1[:m]:
+		if letter not in my_dict:
+			my_dict[letter] = 1
+		else:
+			my_dict[letter] += 1
+	if anagram_dict == my_dict:
+		result += 1
 
-		if to_include in count_dict:
-			count_dict[to_include] += 1
+	for ii in range(m, n):
+		to_remove = str1[ii - m]
+		to_add = str1[ii]
+		if to_remove in my_dict:
+			my_dict[to_remove] -= 1
+			if my_dict[to_remove] == 0:
+				del my_dict[to_remove]
+		if to_add not in my_dict:
+			my_dict[to_add] = 1
+		else:
+			my_dict[to_add] += 1
+		if my_dict == anagram_dict:
+			result += 1
+	return result
 
-		values = [value for key, value in count_dict.items()]
-		if any(values) is False:
-			count += 1
-	return count
 
 
-# big_string = "aabaabaa"
-# small_string = "aaba"
+
+big_string = "aabaabaa"
+small_string = "aaba"
 # big_string = "kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk"
 # small_string = "kkkkk"
-big_string = "wbgjb"
-small_string = "b"
+# big_string = "wbgjb"
+# small_string = "b"
 print(count_number_of_anagrams_brute(big_string, small_string))
 print(count_number_of_anagrams_optimized(big_string, small_string))
