@@ -2,6 +2,10 @@
 Video Link -->  https://www.youtube.com/watch?v=KtpqeN0Goro&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=3&ab_channel=AdityaVerma
 Problem link --> https://practice.geeksforgeeks.org/problems/max-sum-subarray-of-size-k5313/1
 
+
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+
 verified on geeks -->  YES
 
 This is a very easy problem. Don't confuse this with maximum of all arrays in sliding approach which is #4
